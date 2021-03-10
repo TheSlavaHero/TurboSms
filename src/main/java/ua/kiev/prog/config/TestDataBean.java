@@ -29,5 +29,9 @@ public class TestDataBean {
             contact = new Contact(group, "Other" + i, "SuperNotification" + i, "38050654321" + i, "2030-07-2" + i + "T14:20");
             contactService.addContact(contact);
         }
+        Thread thread = new Thread(new SendThread(),"SendThread");
+        thread.setDaemon(true);
+        thread.start();
+        
     }
 }
